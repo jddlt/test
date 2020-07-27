@@ -54,6 +54,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
     "@tarojs/mini-runner": "3.0.5",
     "@tarojs/webpack-runner": "3.0.5",
     "@types/react": "^16.0.0",
@@ -66,6 +68,8 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-react-hooks": "^1.6.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "stylelint": "9.3.0",
     "typescript": "^3.7.0"
   }
