@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Text } from '@tarojs/components'
 import { AtButton } from 'taro-ui'
 // import {} from './'
