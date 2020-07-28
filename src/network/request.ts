@@ -8,23 +8,23 @@ export const request = (options: Taro.request.Option) => {
     Taro.request({
       ...options,
       method: method || 'GET',
-      url: `${BASE_URL}${url}`, 
+      url: `${BASE_URL}${url}`,
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'UserType': 'wechatOnlinePartner',
+        UserType: 'wechatOnlinePartner',
         'Txp-WeChart-App': 'FreshTxpOlinePartner',
         'Txp-Token': GetToken() || '',
-        ...options.header
+        ...options.header,
       },
-      success: res => {
-        if(res.data?.succ) {
+      success: (res) => {
+        if (res.data?.succ) {
           resolve(res)
         } else {
-          Taro.showToast({icon: 'none' ,title: res.data.msg || '请求出错啦！'})
+          Taro.showToast({ icon: 'none', title: res.data.msg || '请求出错啦！' })
           reject(res)
         }
       },
-      fail: msg => Taro.showToast({icon: 'none', title: JSON.stringify(msg)})
+      fail: (msg) => Taro.showToast({ icon: 'none', title: JSON.stringify(msg) }),
     })
   })
 }
@@ -32,5 +32,3 @@ export const request = (options: Taro.request.Option) => {
 export default {
   request,
 }
-
-

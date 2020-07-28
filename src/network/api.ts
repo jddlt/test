@@ -7,5 +7,5 @@ export const GetMoney = () => request({ url: '/api/v1/partner/bonus/notApplyBonu
 
 export default {
   GetToken,
-  GetMoney
+  GetMoney,
 }

@@ -1,18 +1,17 @@
 export interface IState {
-  age: number,
+  age: number
   name: string
 }
 
 export type IActionType = 'Imcrement' | 'Decrement' | 'Rename'
 
 export interface IAction {
-  type: IActionType,
+  type: IActionType
   payload?: number | string
 }
-
 
 export default {
   IState,
   IActionType,
-  IAction
+  IAction,
 }
