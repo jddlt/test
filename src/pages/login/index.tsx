@@ -8,7 +8,7 @@ import { IState, IAction } from '@/store/types'
 
 const Login = (): React.ReactElement => {
   useDidShow(() => {
-    GetMoney().then((res) => console.log(res))
+    GetMoney().then((res) => console.log('res', res))
   })
 
   const userStore = useSelector<IState, IState>(
