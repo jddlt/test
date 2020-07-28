@@ -87,7 +87,7 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "npm run eslint",
-      "git commit -m"
+      "git add"
     ]
   }
 }

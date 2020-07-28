@@ -2,7 +2,9 @@ import Taro from '@tarojs/taro'
 import { GetToken } from '@/network/api'
 import { BASE_URL } from './../const'
 
-export const request = (options: Taro.request.Option) => {
+export const request = (
+  options: Taro.request.Option
+): Promise<unknown> => {
   const { url, method } = options
   return new Promise((resolve, reject) => {
     Taro.request({
@@ -20,11 +22,18 @@ export const request = (options: Taro.request.Option) => {
         if (res.data?.succ) {
           resolve(res)
         } else {
-          Taro.showToast({ icon: 'none', title: res.data.msg || '请求出错啦！' })
+          Taro.showToast({
+            icon: 'none',
+            title: res.data.msg || '请求出错啦！',
+          })
           reject(res)
         }
       },
-      fail: (msg) => Taro.showToast({ icon: 'none', title: JSON.stringify(msg) }),
+      fail: (msg) =>
+        Taro.showToast({
+          icon: 'none',
+          title: JSON.stringify(msg),
+        }),
     })
   })
 }

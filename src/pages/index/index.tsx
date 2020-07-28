@@ -1,13 +1,12 @@
 import Taro from '@tarojs/taro'
-import React, { useEffect, useState } from 'react'
-import { View, Text } from '@tarojs/components'
+import React, { useEffect } from 'react'
+import { View } from '@tarojs/components'
 import { AtButton } from 'taro-ui'
-// import {} from './'
 import dayjs from 'dayjs'
-import './index.less'
 import { useImmer } from 'use-immer'
+import './index.less'
 
-const Home = () => {
+const Home = (): React.ReactElement => {
   const [people, setAge] = useImmer({
     age: 18,
     name: '小王',
@@ -16,31 +15,33 @@ const Home = () => {
   useEffect(() => {
     console.log(`今年${people.age}岁了`)
   }, [people])
-    return (
-      <View className='index'>
+  return (
+    <View className="index">
       <View>
         {people.name}: {people.age}
       </View>
-            <View>{dayjs().format('YYYYMMDD HH:mm:ss')}</View>
+      <View>{dayjs().format('YYYYMMDD HH:mm:ss')}</View>
       <AtButton
         type="primary"
         circle
         onClick={() =>
-          setAge((pre) => {
+          setAge(pre => {
             pre.age += 1
           })
-        }>
-                years later
+        }
+      >
+        years later
       </AtButton>
       <AtButton
         type="primary"
         circle
         customStyle={{ marginTop: '10px' }}
-        onClick={() => Taro.navigateTo({ url: '/pages/login/index' })}>
-                GoTo anOther
+        onClick={() => Taro.navigateTo({ url: '/pages/login/index' })}
+      >
+        GoTo anOther
       </AtButton>
     </View>
-    )
+  )
 }
 
-export default Home
+export default React.memo(Home)

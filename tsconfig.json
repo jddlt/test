@@ -15,5 +15,11 @@
         "@/network/*": ["./src/network/*"],
         "@/store/*": ["./src/store/*"],
       } 
-  }
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

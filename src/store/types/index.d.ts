@@ -3,15 +3,16 @@ export interface IState {
   name: string
 }
 
-export type IActionType = 'Imcrement' | 'Decrement' | 'Rename'
+export type IActionType = 'Imcrement' | 'Decrement'
 
-export interface IAction {
+interface IActionNumber {
   type: IActionType
-  payload?: number | string
+  payload?: number
 }
 
-export default {
-  IState,
-  IActionType,
-  IAction,
+interface IActionString {
+  type: 'Rename'
+  payload: string
 }
+
+export type IAction = IActionNumber | IActionString
