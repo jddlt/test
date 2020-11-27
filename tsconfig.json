@@ -7,14 +7,14 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,  
-      "baseUrl": ".",
-      "paths": {
-        "@/components/*": ["./src/components/*"],
-        "@/utils/*": ["./src/utils/*"],
-        "@/hooks/*": ["./src/utils/*"],
-        "@/network/*": ["./src/network/*"],
-        "@/store/*": ["./src/store/*"],
-      } 
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["./src/components/*"],
+      "@/utils/*": ["./src/utils/*"],
+      "@/hooks/*": ["./src/utils/*"],
+      "@/network/*": ["./src/network/*"],
+      "@/store/*": ["./src/store/*"],
+    } 
   },
   "include": [
     "./src/**/*"

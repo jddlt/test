@@ -14,12 +14,7 @@ module.exports = {
       version: 'detect',
     },
   },
-  plugins: [
-    '@typescript-eslint',
-    'react',
-    'jsx-control-statements',
-    'prettier',
-  ],
+  plugins: ['@typescript-eslint', 'react', 'jsx-control-statements', 'prettier'],
   env: {
     browser: true,
     node: true,
@@ -41,21 +36,14 @@ module.exports = {
         ignoreReadBeforeAssign: true,
       },
     ],
-    '@typescript-eslint/indent': [
-      'error',
-      2,
-      { VariableDeclarator: 4, SwitchCase: 1 },
-    ],
+    '@typescript-eslint/indent': ['error', 2, { VariableDeclarator: 4, SwitchCase: 1 }],
     '@typescript-eslint/no-unused-vars': 2,
     '@typescript-eslint/interface-name-prefix': 0,
     '@typescript-eslint/explicit-member-accessibility': 0,
     '@typescript-eslint/no-triple-slash-reference': 0,
     '@typescript-eslint/ban-ts-ignore': 0,
     '@typescript-eslint/no-this-alias': 0,
-    '@typescript-eslint/triple-slash-reference': [
-      'error',
-      { path: 'always', types: 'never', lib: 'never' },
-    ],
+    '@typescript-eslint/triple-slash-reference': ['error', { path: 'always', types: 'never', lib: 'never' }],
     // React相关校验规则
     'react/jsx-indent': [2, 2],
     'react/jsx-no-undef': [0, { allowGlobals: true }],

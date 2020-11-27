@@ -2,9 +2,7 @@ import Taro from '@tarojs/taro'
 import { GetToken } from '@/network/api'
 import { BASE_URL } from './../const'
 
-export const request = (
-  options: Taro.request.Option
-): Promise<unknown> => {
+export const request = (options: Taro.request.Option): Promise<unknown> => {
   const { url, method } = options
   return new Promise((resolve, reject) => {
     Taro.request({
@@ -18,7 +16,7 @@ export const request = (
         'Txp-Token': GetToken() || '',
         ...options.header,
       },
-      success: (res) => {
+      success: res => {
         if (res.data?.succ) {
           resolve(res)
         } else {
@@ -29,7 +27,7 @@ export const request = (
           reject(res)
         }
       },
-      fail: (msg) =>
+      fail: msg =>
         Taro.showToast({
           icon: 'none',
           title: JSON.stringify(msg),
