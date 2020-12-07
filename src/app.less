@@ -1,0 +1,34 @@
+.es2 {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+/*  格式化全局Button样式  */
+
+button[type=primary]{
+  background-color: #004c96 !important;
+  color: #fff;
+}
+button[type=warn]{
+  border: none !important;
+}
+button{
+  border: 1px solid #004c96 !important;
+  color: #004c96;
+  background-color: #fff;
+  border-radius: 1000px !important;
+}
+.button-hover{
+  opacity: 1;
+}

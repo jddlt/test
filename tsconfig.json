@@ -14,6 +14,8 @@
       "@/hooks/*": ["./src/utils/*"],
       "@/network/*": ["./src/network/*"],
       "@/store/*": ["./src/store/*"],
+      "@/assets/*": ["./src/assets/*"],
+      "@/const/*": ["./src/const/*"],
     } 
   },
   "include": [

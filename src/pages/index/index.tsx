@@ -1,47 +1,36 @@
-import Taro from '@tarojs/taro'
-import React, { useEffect } from 'react'
-import { View } from '@tarojs/components'
-import { AtButton } from 'taro-ui'
-import dayjs from 'dayjs'
-import { useImmer } from 'use-immer'
-import './index.less'
+import React from 'react'
+import Taro, { useDidShow } from '@tarojs/taro'
+import { Image } from '@tarojs/components'
+import Page from '@/components/Page'
+import styles from './index.module.less'
+// import { GetMoney } from '@/network/api'
+// import { useSelector, useDispatch } from 'react-redux'
+// import { IState, IAction } from '@/store/types'
 
-const Home = (): React.ReactElement => {
-  const [people, setAge] = useImmer({
-    age: 18,
-    name: '小王',
+type Dispatch<T> = (action: T) => void
+
+const Login = (): React.ReactElement => {
+  useDidShow(() => {
+    // GetMoney().then(res => console.log('res', res))
   })
+  // const userStore = useSelector<IState, IState>(state => ({ ...state }))
+  // const dispatch: Dispatch<IAction> = useDispatch()
 
-  useEffect(() => {
-    console.log(`今年${people.age}岁了`)
-  }, [people])
+  const goLogin = () => {
+    Taro.navigateTo({
+      url: '/pages/login/index',
+    })
+  }
+
   return (
-    <View className="index">
-      <View>
-        {people.name}: {people.age}
-      </View>
-      <View>{dayjs().format('YYYYMMDD HH:mm:ss')}</View>
-      <AtButton
-        type="primary"
-        circle
-        onClick={() =>
-          setAge(pre => {
-            pre.age += 1
-          })
-        }
-      >
-        years later
-      </AtButton>
-      <AtButton
-        type="primary"
-        circle
-        customStyle={{ marginTop: '10px' }}
-        onClick={() => Taro.navigateTo({ url: '/pages/login/index' })}
-      >
-        GoTo anOther
-      </AtButton>
-    </View>
+    <Page className={styles.home} onClick={goLogin}>
+      <Image
+        className={styles.img}
+        mode="widthFix"
+        src="https://s.freshtxp.com/guide/undefined/2020-12-04/d9efb80771be4d5dbeb8a24c966d1a45.png"
+      />
+    </Page>
   )
 }
 
-export default React.memo(Home)
+export default React.memo(Login)
