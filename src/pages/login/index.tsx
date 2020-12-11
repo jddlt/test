@@ -1,53 +1,69 @@
 import React from 'react'
-import Taro, { useDidShow } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import Page from '@/components/Page'
-// import TButton from '@/components/Button'
-import { Image, View, Text, Button } from '@tarojs/components'
+import TButton from '@/components/Button'
+import TImage from '@/components/Image'
+import { setUserInfoAction } from '@/store/action/userInfo'
+import { View, Text, BaseEventOrig } from '@tarojs/components'
+import { useDispatch } from 'react-redux'
+import { IAction, IUserInfo } from '@/store/index.d'
+import useLogin from '@/hooks/useLogin'
+import { ButtonProps } from '@tarojs/components/types/Button'
 import styles from './index.module.less'
-// import { GetMoney } from '@/network/api'
-// import { useSelector, useDispatch } from 'react-redux'
-// import { IState, IAction } from '@/store/types'
 
 type Dispatch<T> = (action: T) => void
 
 const Login = (): React.ReactElement => {
-  useDidShow(() => {
-    // GetMoney().then(res => console.log('res', res))
-  })
-
-  // const userStore = useSelector<IState, IState>(state => ({ ...state }))
-  // const dispatch: Dispatch<IAction> = useDispatch()
-  const getUserInfo = res => {
-    console.log('23')
-
-    Taro.showToast({
-      title: JSON.stringify(res),
-      icon: 'success',
-      duration: 2000,
+  const code = useLogin()
+  const dispatch: Dispatch<IAction<IUserInfo>> = useDispatch()
+  const getUserInfo = (res: BaseEventOrig<ButtonProps.onGetUserInfoEventDetail>) => {
+    if (res.detail.errMsg === 'getUserInfo:ok') {
+      dispatch(setUserInfoAction(res.detail.userInfo))
+      console.log('code', code)
+    } else {
+      Taro.showToast({
+        title: '获取用户信息失败',
+        icon: 'none',
+      })
+    }
+  }
+  const getPhone = res => {
+    console.log('phone', res)
+    Taro.navigateTo({
+      url: '/pages/result/index',
     })
   }
 
   return (
     <Page className={styles.login}>
-      <Image
+      <TImage
         src="https://s.freshtxp.com/guide/undefined/2020-12-04/9122e0d7f2794dd6bce1393f0b9f7343.png"
-        className={styles.icon}
+        width={176}
         mode="widthFix"
+        height={244}
+        loading={false}
+        showThumb={false}
+        top={96}
       />
-      <Button
+      <TButton
         type="primary"
         className={styles.loginButton}
         width={686}
         height={92}
         openType="getUserInfo"
         onGetUserInfo={getUserInfo}
-        onClick={() => console.log(111)}
       >
         微信登录
-      </Button>
-      <Button className={styles.partnerLoginButton} width={684} height={90}>
+      </TButton>
+      <TButton
+        openType="getPhoneNumber"
+        onGetPhoneNumber={getPhone}
+        className={styles.partnerLoginButton}
+        width={684}
+        height={90}
+      >
         已有合伙人账号登录
-      </Button>
+      </TButton>
       <View className={styles.agreement}>
         <Text>登录表示同意 </Text>
         <Text className={styles.rule}>天鲜配生鲜平台代理合作协议</Text>

@@ -1,3 +1,5 @@
+@primaryColor: #004c96;
+
 .es2 {
   text-overflow: -o-ellipsis-lastline;
   overflow: hidden;
@@ -14,21 +16,30 @@
   color: transparent;
 }
 
+// 定义全局框架样式
+.globalCss{
+  // background-color: #fff;
+  // width: 100vw;
+  // min-height: 100vh;
+}
+
+
 /*  格式化全局Button样式  */
 
 button[type=primary]{
-  background-color: #004c96 !important;
+  background-color: @primaryColor !important;
   color: #fff;
 }
 button[type=warn]{
   border: none !important;
 }
 button{
-  border: 1px solid #004c96 !important;
-  color: #004c96;
+  border: 1px solid @primaryColor !important;
+  color: @primaryColor;
   background-color: #fff;
   border-radius: 1000px !important;
 }
-.button-hover{
-  opacity: 1;
+.defaultButtonHoverClass{
+  transform: scale(0.96);
+  transition: transform 0.2s;
 }

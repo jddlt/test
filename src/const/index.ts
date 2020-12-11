@@ -111,8 +111,12 @@ export const INFO_LIST: IInfoList[] = [
   },
 ]
 
+// 全局主题色
+export const PRIMARY_COLOR = '#004c96'
+
 export default {
   BASE_URL,
   HOT_TYPE,
   INFO_LIST,
+  PRIMARY_COLOR,
 }

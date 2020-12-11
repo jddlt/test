@@ -1,6 +1,10 @@
-import { createStore } from 'redux'
-import { userInfoReducer } from './reducer/userInfoReducer'
+import { createStore, combineReducers } from 'redux'
+import UserInfo from '@/store/reducer/userInfo'
 
-const store = createStore(userInfoReducer)
+const store = createStore(
+  combineReducers({
+    UserInfo,
+  })
+)
 
 export default store

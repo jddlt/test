@@ -11,7 +11,7 @@ interface IProps extends ViewProps {
  * 便于后面全局功能扩展 如 loading 回首页 ..
  */
 const Page = (props: IProps): React.ReactElement => {
-  return <View {...props}></View>
+  return <View {...props} className={props.className + ' globalCss'}></View>
 }
 
 export default Page
