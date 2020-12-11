@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/indent */
 import React from 'react'
-import { View, Image, Text } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import { styled } from 'linaria/react'
+import TImage from '@/components/Image'
 import { IInfoList } from '@/const/index'
 
 interface IProps extends IInfoList {
@@ -20,7 +21,8 @@ const Card = (props: IProps): React.ReactElement => {
         </View>
         <View className="title es2">{props.title}</View>
       </View>
-      <Image src={props.img} className="img" />
+      {/* <Image src={props.img} className="img" /> */}
+      <TImage src={props.img} width={200} height={120} className="img" />
     </InfoCard>
   )
 }

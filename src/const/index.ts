@@ -67,47 +67,42 @@ export const INFO_LIST: IInfoList[] = [
   {
     hot: 23670000,
     title: '丁真给家里买了洗衣机和电瓶车',
-    img: 'https://imgs.mrpzx.cn/ImageHistory/2020-12-03/1606983639000',
+    img: 'https://freshtxp-static.oss-cn-beijing.aliyuncs.com/attachment/8727ee4e-23f5-428e-ba8e-779a423d9e97.png',
   },
   {
     hot: 450000,
     title: '错换人生28年"当事人生母告开封卫健委:8个月了至少给说法',
-    img:
-      'http://t10.baidu.com/it/u=486009981,1565373997&fm=173&app=49&f=JPEG?w=312&h=208&s=CFA17C6CF672499CF3AC2DDA03008092',
+    img: 'https://freshtxp-static.oss-cn-beijing.aliyuncs.com/attachment/6fae1eaa-d66a-442f-8c6c-7fb160629a97.png',
   },
   {
     hot: 3000,
     title: '王兴更是坚定背书：“我认为，很多投资者还是低估了电动汽车和理想汽车的潜力',
-    img:
-      'http://t10.baidu.com/it/u=1418821389,3115759831&fm=173&app=49&f=JPEG?w=312&h=208&s=2A9266847F4E37491297259B0300508B',
+    img: 'https://freshtxp-static.oss-cn-beijing.aliyuncs.com/attachment/9b45a71a-5c7c-41c0-b77e-16f7345e9753.png',
   },
   {
     hot: 304500,
     title: '王兴更是坚定背书：“我认为，很多投资者还是低估了电动汽车和理想汽车的潜力',
-    img:
-      'http://t12.baidu.com/it/u=3313202288,1870692570&fm=173&app=49&f=JPEG?w=312&h=208&s=09417B6EC7372594136A098A0300B09F',
+    img: 'https://freshtxp-static.oss-cn-beijing.aliyuncs.com/attachment/698b591c-674e-42ce-acb5-2e6970943c6a.png',
   },
   {
     hot: 23670000,
     title: '丁真给家里买了洗衣机和电瓶车',
-    img: 'https://imgs.mrpzx.cn/ImageHistory/2020-12-03/1606983639000',
+    img: 'https://freshtxp-static.oss-cn-beijing.aliyuncs.com/attachment/8f6913a4-5864-457e-8211-86dfc8fe5483.png',
   },
   {
     hot: 450000,
     title: '错换人生28年"当事人生母告开封卫健委:8个月了至少给说法',
-    img:
-      'http://t10.baidu.com/it/u=486009981,1565373997&fm=173&app=49&f=JPEG?w=312&h=208&s=CFA17C6CF672499CF3AC2DDA03008092',
+    img: 'https://freshtxp-static.oss-cn-beijing.aliyuncs.com/attachment/3e4f668c-1ad1-4d84-bc4e-5b4a92b3785d.png',
   },
   {
     hot: 23670000,
     title: '丁真给家里买了洗衣机和电瓶车',
-    img: 'https://imgs.mrpzx.cn/ImageHistory/2020-12-03/1606983639000',
+    img: 'https://freshtxp-static.oss-cn-beijing.aliyuncs.com/attachment/1cd37af2-0a7c-45ef-b50a-866d3ee5b014.png',
   },
   {
     hot: 450000,
     title: '错换人生28年"当事人生母告开封卫健委:8个月了至少给说法',
-    img:
-      'http://t10.baidu.com/it/u=486009981,1565373997&fm=173&app=49&f=JPEG?w=312&h=208&s=CFA17C6CF672499CF3AC2DDA03008092',
+    img: 'https://freshtxp-static.oss-cn-beijing.aliyuncs.com/attachment/d963a53e-1029-48bf-8dca-b648b27e17a0.png',
   },
 ]
 

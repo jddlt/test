@@ -39,7 +39,10 @@ const Home = (): React.ReactElement => {
           duration={300}
           current={current}
           onChange={e => setCurrent(e.detail?.current)}
-          style={{ height: `calc(100vh - ${Taro.pxTransform(180)})`, overflowY: 'auto' }}
+          style={{
+            height: `calc(100vh - ${Taro.pxTransform(180)})`,
+            overflowY: 'auto',
+          }}
         >
           <SwiperItem className={styles.swiperItem}>
             {INFO_LIST.map((item, index) => (
