@@ -2,7 +2,7 @@
 	"miniprogramRoot": ".dist",
 	"projectname": "wx-partner",
 	"description": "微信合伙人",
-	"appid": "wxd93a18704d87c016",
+	"appid": "wx31ded3b5a2954682",
 	"setting": {
 		"urlCheck": true,
 		"es6": false,

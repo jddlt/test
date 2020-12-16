@@ -17,8 +17,23 @@ const Login = (): React.ReactElement => {
   const code = useLogin()
   const dispatch: Dispatch<IAction<IUserInfo>> = useDispatch()
   const getUserInfo = (res: BaseEventOrig<ButtonProps.onGetUserInfoEventDetail>) => {
+    console.log(res)
+
     if (res.detail.errMsg === 'getUserInfo:ok') {
       dispatch(setUserInfoAction(res.detail.userInfo))
+      const CurrentPage = Taro.getCurrentPages()
+      const CurrentPageLength = Taro.getCurrentPages().length
+      const prePage = CurrentPage[CurrentPageLength - 2]?.route
+      if (prePage === 'pages/mine/index') {
+        Taro.reLaunch({
+          url: `/${prePage}`,
+        })
+      } else {
+        Taro.redirectTo({
+          url: '/pages/result/index',
+        })
+      }
+
       console.log('code', code)
     } else {
       Taro.showToast({
@@ -28,10 +43,14 @@ const Login = (): React.ReactElement => {
     }
   }
   const getPhone = res => {
-    console.log('phone', res)
-    Taro.navigateTo({
-      url: '/pages/result/index',
+    Taro.showToast({
+      title: '以后在获取',
+      icon: 'none',
     })
+    // console.log('phone', res)
+    // Taro.navigateTo({
+    //   url: '/pages/result/index',
+    // })
   }
 
   return (
@@ -42,7 +61,6 @@ const Login = (): React.ReactElement => {
         mode="widthFix"
         height={244}
         loading={false}
-        showThumb={false}
         top={96}
       />
       <TButton

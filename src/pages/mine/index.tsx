@@ -3,6 +3,7 @@ import React from 'react'
 import { View, Image } from '@tarojs/components'
 import { useSelector, useDispatch } from 'react-redux'
 import { IState, IUserInfo } from '@/store/index.d'
+import Page from '@/components/Page'
 import { setUserInfoAction, cleanUserInfoAction } from '@/store/action/userInfo'
 import InputText, { InputTextProps } from './components/InputText'
 import styles from './index.module.less'
@@ -77,13 +78,23 @@ const Home = (): React.ReactElement => {
         success: res => {
           dispatch(setUserInfoAction(res.userInfo))
         },
-        fail: () => Taro.showToast({ icon: 'none', title: '登录失败' }),
+        fail: () => {
+          Taro.navigateTo({
+            url: '/pages/login/index',
+          })
+        },
       })
     }
   }
 
+  const goToBill = () => {
+    Taro.navigateTo({
+      url: '/pages/bill/index',
+    })
+  }
+
   return (
-    <View className={styles.minePage}>
+    <Page className={styles.minePage}>
       <View className={styles.mine}>
         <Image
           src={
@@ -98,9 +109,9 @@ const Home = (): React.ReactElement => {
         </View>
       </View>
       {inputTextList.map((v, index) => (
-        <InputText {...v} key={index} />
+        <InputText onClick={goToBill} {...v} key={index} />
       ))}
-    </View>
+    </Page>
   )
 }
 

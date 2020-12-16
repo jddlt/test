@@ -1,10 +1,9 @@
 /* eslint-disable react/display-name */
 import React, { useCallback, useState, useMemo } from 'react'
 import { Image, BaseEventOrig, View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 import { ImageProps } from '@tarojs/components/types/Image'
 import Loading from '@/components/Loading'
-import { filterNullParams, thumpImg } from '@/utils/index'
+import { filterNullParams, thumpImg, transUnit } from '@/utils/index'
 
 interface IProps extends ImageProps {
   showThumb?: boolean
@@ -23,8 +22,6 @@ const displayStyle: React.CSSProperties = {
   height: 'auto',
 }
 
-const trans = (x?: string | number) => (typeof x === 'string' ? x : Taro.pxTransform(Number(x)))
-
 /**
  * 更友好的展示图片
  * @param width 图片宽度
@@ -39,9 +36,8 @@ const TImage = (props: IProps): React.ReactElement => {
   const { showThumb = true, loading = true } = props
   const [url, setUrl] = useState(showThumb ? thumpImg(props.src, props.thumbWidth || 50) : props.src)
   const [isPre, setIsPre] = useState(true)
-
+  console.log('ImgLoaded')
   const imgLoaded = useCallback(() => {
-    console.log('loaded')
     setIsPre(false)
     setUrl(props.src)
   }, [props.src])
@@ -51,13 +47,13 @@ const TImage = (props: IProps): React.ReactElement => {
   }, [])
 
   const PreLoadImg = useMemo(() => {
-    console.log('PreLoadImg', showThumb)
     return () =>
-      showThumb ? <Image src={props.src} style={displayStyle} lazyLoad onLoad={imgLoaded} onError={imgError} /> : null
+      showThumb ? <Image src={props.src} style={displayStyle} onLoad={imgLoaded} onError={imgError} /> : null
   }, [imgError, imgLoaded, props.src, showThumb])
 
   return (
     <>
+      {/* 加载前的loading */}
       {isPre && (
         <View
           style={{
@@ -66,27 +62,31 @@ const TImage = (props: IProps): React.ReactElement => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            width: props.width && trans(props.width),
-            height: (props.mayHeight || props.height) && trans(props.mayHeight || props.height),
-            marginTop: props.top && trans(props.top),
+            width: props.width && transUnit(props.width),
+            height: (props.mayHeight || props.height) && transUnit(props.mayHeight || props.height),
+            marginTop: props.top && transUnit(props.top),
           }}
+          className={props.className}
         >
           {loading && <Loading />}
         </View>
       )}
+
       <Image
         {...props}
         style={filterNullParams({
-          marginTop: props.top && trans(props.top),
+          marginTop: props.top && transUnit(props.top),
           ...(props.style as React.CSSProperties),
-          width: props.width && trans(props.width),
-          height: props.height ? trans(props.height) : 'auto',
+          width: props.width && transUnit(props.width),
+          height: props.height ? transUnit(props.height) : 'auto',
           ...(isPre ? displayStyle : {}),
         })}
-        lazyLoad
+        // lazyLoad
         src={url}
         onLoad={() => setIsPre(false)}
       />
+
+      {/* 加载原图的工具人 */}
       <PreLoadImg />
     </>
   )

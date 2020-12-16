@@ -20,7 +20,6 @@ const Result = (): React.ReactElement => {
         mode="widthFix"
         width={140}
         height={140}
-        showThumb={false}
         loading={false}
         top={95}
       />

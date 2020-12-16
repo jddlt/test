@@ -43,11 +43,13 @@ module.exports = {
     '@typescript-eslint/no-triple-slash-reference': 0,
     '@typescript-eslint/ban-ts-ignore': 0,
     '@typescript-eslint/no-this-alias': 0,
+    '@typescript-eslint/no-empty-function': 0,
     '@typescript-eslint/triple-slash-reference': ['error', { path: 'always', types: 'never', lib: 'never' }],
     // React相关校验规则
     'react/jsx-indent': [2, 2],
+    'react/display-name': 0,
     'react/jsx-no-undef': [0, { allowGlobals: true }],
     'jsx-control-statements/jsx-use-if-tag': 0,
-    'no-console': 0,
+    'no-console': 1,
   },
 }

@@ -14,13 +14,14 @@ export interface InputTextProps {
   postText: string
   rightStatus: string
   empty?: boolean
+  onClick?: () => void
 }
 
 const InputText = (props: Partial<InputTextProps>): React.ReactElement => {
   return props.empty ? (
     <Line />
   ) : (
-    <CSSInputText>
+    <CSSInputText onClick={props.onClick || (() => {})}>
       <View className="inputTextLeft">
         {props.leftIcon && (
           <AtIcon value={props.leftIcon} size={props.leftIconSize || 18} color={props.leftIconColor || PRIMARY_COLOR} />

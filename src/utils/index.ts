@@ -1,3 +1,5 @@
+import Taro from '@tarojs/taro'
+
 /**
  * 清除对象的无用key
  */
@@ -18,3 +20,10 @@ export const filterNullParams = (obj: Record<string, unknown> = {}): Record<stri
  */
 
 export const thumpImg = (url: string, width: number): string => `${url}?x-oss-process=image/resize,w_${width}`
+
+/**
+ * Js中单位转换
+ * @param 长度
+ */
+
+export const transUnit = (x?: string | number): string => (typeof x === 'string' ? x : Taro.pxTransform(Number(x)))

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/indent */
 import React from 'react'
+import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { styled } from 'linaria/react'
 import TImage from '@/components/Image'
@@ -13,7 +14,7 @@ const Card = (props: IProps): React.ReactElement => {
   const formatHot = (num: number) => (num > 10000 ? `${Math.floor(num / 10000)}万` : num)
 
   return (
-    <InfoCard index={props.index}>
+    <InfoCard index={props.index} onClick={() => Taro.navigateTo({ url: '/pages/map/index' })}>
       <View className="info">
         <View>
           <Text className="index">{String(props.index + 1).padStart(2, '0')}</Text>

@@ -3,5 +3,8 @@
   "rules": [{
     "action": "allow",
     "page": "*"
-  }]
+  }],
+  "setting": {
+    "checkSiteMap": false
+  }
 }

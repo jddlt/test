@@ -1,12 +1,12 @@
 import React from 'react'
 import { Button } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 import { ButtonProps } from '@tarojs/components/types/Button'
+import { transUnit } from '@/utils/index'
 
 interface IProps extends ButtonProps {
   children: React.ReactNode
-  width?: number
-  height?: number
+  width?: number | string
+  height?: number | string
 }
 /**
  * 懒人Button
@@ -17,11 +17,16 @@ const TButton = (props: IProps): React.ReactElement => {
   return (
     <Button
       {...props}
-      hoverClass={props.hoverClass || 'defaultButtonHoverClass'}
+      className={props.className + (props.hoverClass ? '' : ' defaultButtonClass')}
+      hoverClass={props.hoverClass || 'null'}
       style={{
+        lineHeight: 1,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         ...(props.style as React.CSSProperties),
-        width: props.width && Taro.pxTransform(props.width),
-        height: props.height && Taro.pxTransform(props.height),
+        width: props.width && transUnit(props.width),
+        height: props.height && transUnit(props.height),
       }}
     >
       {props.children}

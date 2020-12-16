@@ -1,5 +1,14 @@
 export default {
-  pages: ['pages/index/index', 'pages/login/index', 'pages/mine/index', 'pages/goods/index', 'pages/result/index'],
+  pages: [
+    'pages/index/index',
+    'pages/login/index',
+    'pages/mine/index',
+    'pages/goods/index',
+    'pages/result/index',
+    'pages/map/index',
+    'pages/delivery/index',
+    'pages/bill/index',
+  ],
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
@@ -20,7 +29,7 @@ export default {
       {
         iconPath: 'assets/image/ico_category.png',
         selectedIconPath: 'assets/image/ico_category_per.png',
-        pagePath: 'pages/goods/index',
+        pagePath: 'pages/delivery/index',
         text: '商品推荐',
       },
       {
